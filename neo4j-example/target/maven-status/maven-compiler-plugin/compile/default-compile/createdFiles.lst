@@ -1,0 +1,4 @@
+com\example\neo4jexample\Neo4jExampleApplication.class
+com\example\neo4jexample\controller\PersonController.class
+com\example\neo4jexample\repository\PersonRepository.class
+com\example\neo4jexample\model\Person.class
