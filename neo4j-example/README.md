@@ -1,40 +1,38 @@
-# Spring Boot Neo4j Example
+# Spring Boot Neo4j Demo
 
-This is a simple Spring Boot application demonstrating integration with Neo4j graph database.
+This is a Spring Boot application that demonstrates integration with Neo4j graph database.
 
 ## Prerequisites
 
 - Java 17
-- Maven
-- Neo4j Database (local or remote)
+- Gradle 8.11.1
+- Neo4j Database (Make sure it's running on localhost:7687)
 
 ## Configuration
 
-Update the Neo4j connection details in `src/main/resources/application.properties`:
+The application is configured with the following properties in `application.properties`:
 
-```properties
-spring.neo4j.uri=bolt://localhost:7687
-spring.neo4j.authentication.username=neo4j
-spring.neo4j.authentication.password=password
+- Neo4j connection: bolt://localhost:7687
+- Default username: neo4j
+- Default password: password
+- Server port: 8080
+
+Please update these values according to your Neo4j installation.
+
+## Building the Application
+
+To build the application, run:
+
+```bash
+./gradlew build
 ```
 
 ## Running the Application
 
-1. Start your Neo4j database
-2. Build the project: `mvn clean install`
-3. Run the application: `mvn spring-boot:run`
+To run the application:
 
-## API Endpoints
+```bash
+./gradlew bootRun
+```
 
-- Create a person: `POST /api/persons`
-  ```json
-  {
-    "name": "John Doe",
-    "age": 30
-  }
-  ```
-- Get all persons: `GET /api/persons`
-
-## Testing
-
-You can test the API using curl or any API testing tool like Postman.
+The application will start on http://localhost:8080
