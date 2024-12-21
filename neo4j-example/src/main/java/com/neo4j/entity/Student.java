@@ -6,8 +6,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
+import java.util.List;
+import com.neo4j.relations.LearningRelation;
 
-@Node
+@Node(labels = {"Student"})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,4 +20,11 @@ public class Student {
     private Long id;
     private String name;
     private int age;
+    private String country;
+
+    @Relationship(type = "BELONGS_TO", direction = Relationship.Direction.OUTGOING)
+    private Department department;
+
+    @Relationship(type = "IS_LEARNING", direction = Relationship.Direction.OUTGOING)
+    private List<LearningRelation> learningRelations;
 }
