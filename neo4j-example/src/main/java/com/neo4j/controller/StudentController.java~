@@ -1,7 +1,6 @@
 package com.neo4j.controller;
 
 import com.neo4j.entity.Student;
-import com.neo4j.request.StudentRequest;
 import com.neo4j.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +20,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> createStudent(@RequestBody StudentRequest student) {
+    public ResponseEntity<Student> createStudent(@RequestBody Student student) {
         return ResponseEntity.ok(studentService.createStudent(student));
     }
 
