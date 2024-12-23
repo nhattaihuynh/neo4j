@@ -1,7 +1,11 @@
 package com.neo4j.service;
 
 import com.neo4j.entity.Student;
+import com.neo4j.repository.DepartmentRepository;
 import com.neo4j.repository.StudentRepository;
+import com.neo4j.repository.SubjectRepository;
+import com.neo4j.request.StudentRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +17,21 @@ public class StudentService {
     
     private final StudentRepository studentRepository;
 
+    private final DepartmentRepository departmentRepository;
+
+    private final SubjectRepository subjectRepository;
+
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, DepartmentRepository departmentRepository, SubjectRepository subjectRepository) {
         this.studentRepository = studentRepository;
+        this.departmentRepository = departmentRepository;
+        this.subjectRepository = subjectRepository;
     }
 
-    public Student createStudent(Student student) {
+    public Student createStudent(StudentRequest studentRequest) {
+        Student student = new Student();
+        student.setName(studentRequest.getName());
+        student.setAge(studentRequest.getAge());
         return studentRepository.save(student);
     }
 

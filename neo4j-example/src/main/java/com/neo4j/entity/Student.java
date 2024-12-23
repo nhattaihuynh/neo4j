@@ -7,8 +7,10 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
+
+import com.neo4j.relation.LearningRelation;
+
 import java.util.List;
-import com.neo4j.relations.LearningRelation;
 
 @Node(labels = {"Student"})
 @Data
