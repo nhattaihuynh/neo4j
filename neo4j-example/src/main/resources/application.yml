@@ -9,3 +9,9 @@ spring:
   data:
     neo4j:
       database: student
+
+logging:
+  level:
+    org:
+      neo4j:
+        driver: DEBUG

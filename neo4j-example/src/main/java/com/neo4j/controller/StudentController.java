@@ -21,8 +21,8 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> createStudent(@RequestBody StudentRequest student) {
-        return ResponseEntity.ok(studentService.createStudent(student));
+    public ResponseEntity<Student> createStudent(@RequestBody StudentRequest studentRequest) {
+        return ResponseEntity.ok(studentService.createStudent(studentRequest));
     }
 
     @GetMapping
@@ -51,5 +51,10 @@ public class StudentController {
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Student>> getByNameOrCountry(@RequestParam String name, @RequestParam String country) {
+        return ResponseEntity.ok(studentService.getByNameOrCountry(name, country));
     }
 }

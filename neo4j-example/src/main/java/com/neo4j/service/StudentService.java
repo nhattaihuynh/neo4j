@@ -38,6 +38,7 @@ public class StudentService {
 
         student.setName(studentRequest.getName());
         student.setAge(studentRequest.getAge());
+        student.setCountry(studentRequest.getCountry());
 
         Department department = new Department();
         department.setDepName(studentRequest.getDepartment().getDepartmentName());
@@ -76,5 +77,9 @@ public class StudentService {
 
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
+    }
+
+    public List<Student> getByNameOrCountry(String name, String country) {
+        return studentRepository.getByNameOrCountry(name, country);
     }
 }
