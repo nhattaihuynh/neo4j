@@ -15,4 +15,7 @@ public interface StudentRepository extends Neo4jRepository<Student, Long> {
     
     @Query("MATCH (s:Student) WHERE s.name = $name OR s.country = $country RETURN s")
     List<Student> getByNameOrCountry(String name, String country);
+
+    @Query("MATCH (s:Student) WHERE s.name ENDS WITH 'son' RETURN s")
+    List<Student> findByNameEndingWithSon();
 }
